@@ -1,0 +1,71 @@
+<h2>Monitoring Dashboard</h2>
+
+<button (click)="getAllResults()">
+  Get All Results
+</button>
+
+<br><br>
+
+<input
+  type="text"
+  placeholder="API Endpoint ID"
+  [(ngModel)]="apiEndpointId"
+>
+
+<button (click)="getByEndpoint()">
+  Get By Endpoint
+</button>
+
+<br><br>
+
+<input
+  type="text"
+  placeholder="Start Time"
+  [(ngModel)]="startTime"
+>
+
+<input
+  type="text"
+  placeholder="End Time"
+  [(ngModel)]="endTime"
+>
+
+<button (click)="getByTimeRange()">
+  Get By Time Range
+</button>
+
+<br><br>
+
+<button (click)="getByEndpointAndTime()">
+  Get By Endpoint + Time
+</button>
+
+<br><br>
+
+<table *ngIf="results.length > 0">
+
+  <tr>
+
+    <th>ID</th>
+
+    <th>API Name</th>
+
+    <th>Status</th>
+
+    <th>Response Time</th>
+
+  </tr>
+
+  <tr *ngFor="let r of results">
+
+    <td>{{ r.id }}</td>
+
+    <td>{{ r.apiName }}</td>
+
+    <td>{{ r.statusCode }}</td>
+
+    <td>{{ r.responseTime }}</td>
+
+  </tr>
+
+</table>

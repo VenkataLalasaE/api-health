@@ -1,0 +1,81 @@
+<h2>API Endpoints Dashboard</h2>
+
+<input
+  type="text"
+  placeholder="ID"
+  [(ngModel)]="id"
+>
+
+<button (click)="getById()">
+  Get By ID
+</button>
+
+<button (click)="delete()">
+  Delete
+</button>
+
+<br><br>
+
+<button (click)="getAllEndpoints()">
+  Get All Endpoints
+</button>
+
+<br><br>
+
+<input
+  type="text"
+  placeholder="Name"
+  [(ngModel)]="name"
+>
+
+<input
+  type="text"
+  placeholder="URL"
+  [(ngModel)]="url"
+>
+
+<input
+  type="text"
+  placeholder="Method"
+  [(ngModel)]="method"
+>
+
+<br><br>
+
+<button (click)="create()">
+  Create
+</button>
+
+<button (click)="update()">
+  Update
+</button>
+
+<br><br>
+
+<table *ngIf="endpoints.length > 0">
+
+  <tr>
+
+    <th>ID</th>
+
+    <th>Name</th>
+
+    <th>URL</th>
+
+    <th>Method</th>
+
+  </tr>
+
+  <tr *ngFor="let e of endpoints">
+
+    <td>{{ e.id }}</td>
+
+    <td>{{ e.name }}</td>
+
+    <td>{{ e.url }}</td>
+
+    <td>{{ e.method }}</td>
+
+  </tr>
+
+</table>
